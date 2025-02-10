@@ -8,6 +8,7 @@ import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -30,7 +31,7 @@ public class UserView extends VerticalLayout {
     private TextField email = new TextField("Email");
     private DatePicker dateOfBirth = new DatePicker("Date of Birth");
     private ComboBox<String> gender = new ComboBox<>("Gender");
-    private TextField searchField = new TextField("Search by ID");
+    private TextField searchField;
 
     private Button saveButton = new Button("Save");
     private Button editButton = new Button("Edit");
@@ -53,6 +54,11 @@ public class UserView extends VerticalLayout {
         configureForm();
 
         generateReportButton.addClickListener(e -> generateReport());
+        searchField = new TextField();
+        searchField.setPlaceholder("Search");
+        searchField.setClearButtonVisible(true);
+        searchField.setPrefixComponent(VaadinIcon.SEARCH.create());
+        searchField.getElement().setAttribute("aria-label", "search");
         searchField.addValueChangeListener(e -> searchUserById(e.getValue()));
 
         dateOfBirth.setPlaceholder("DD-MM-YYYY");
