@@ -1,5 +1,5 @@
 # hometest
-This is a web application for managing users and generating reports using Java, Spring Boot, Vaadin, and JasperReports.
+This is a web application for managing users and generating reports using Java Spring Boot, Vaadin, and JasperReports.
 
 ## Features
 
@@ -22,6 +22,13 @@ This is a web application for managing users and generating reports using Java, 
 
 - **Frontend**:
   - Vaadin Framework
+
+## API Endpoints
+- **User Management**:
+  - GET /users: Get all users
+  - POST /users: Create a new user
+  - PUT /users/{id}: Update an existing user
+  - DELETE /users/{id}: Delete a user
 
 ## Installation
 
